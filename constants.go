@@ -59,10 +59,10 @@ const MaxEthOnBlockCallRetries = 2
 const EthOnBlockCallRetrySleepInterval = 10 * time.Millisecond
 
 // MaxEthTxReceiptCallRetries - max number of retries for eth RPC calls executed for txReceipts feed
-const MaxEthTxReceiptCallRetries = 5
+const MaxEthTxReceiptCallRetries = 12
 
 // EthTxReceiptCallRetrySleepInterval - duration of sleep between RPC call retry attempts for txReceipts feed
-const EthTxReceiptCallRetrySleepInterval = 2 * time.Millisecond
+const EthTxReceiptCallRetrySleepInterval = 4 * time.Millisecond
 
 // TaskCompletedEvent - sent as notification on onBlock feed after all RPC calls are completed
 const TaskCompletedEvent = "TaskCompletedEvent"
