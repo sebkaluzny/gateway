@@ -50,7 +50,7 @@ const ExpiredDate = "1970-01-01"
 const AsyncMsgChannelSize = 500
 
 // BxNotificationChannelSize - is the size of feed channels
-const BxNotificationChannelSize = 1000
+const BxNotificationChannelSize = 10000
 
 // MaxEthOnBlockCallRetries - max number of retries for eth RPC calls executed for onBlock feed
 const MaxEthOnBlockCallRetries = 2

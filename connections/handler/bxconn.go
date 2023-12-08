@@ -18,7 +18,7 @@ import (
 
 const (
 	connTimeout        = 5 * time.Second
-	receiveChannelSize = 500
+	receiveChannelSize = 10000
 )
 
 // BxConn is a connection to any other bloxroute Node. BxConn implements connections.ConnHandler.
