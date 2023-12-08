@@ -352,13 +352,13 @@ func (f *FeedManager) run(ctx context.Context) {
 						// }
 					default:
 						f.log.Errorf("can't send %v to channel %v without blocking. Ignored hash %v and unsubscribing", clientSub.feedType, uid, notification.GetHash())
-						go func(subscriptionID string) {
-							// running as go-routine since we are holding the lock. Closing the connection since we can't write
-							if err := f.Unsubscribe(subscriptionID, false, ""); err != nil {
-								f.log.Debugf("unable to Unsubscribe %v - %v", subscriptionID, err)
-							}
-							// TODO: mark clientSub as "being closed" to prevent multiple Unsubscribe
-						}(uid)
+						// go func(subscriptionID string) {
+						// 	// running as go-routine since we are holding the lock. Closing the connection since we can't write
+						// 	if err := f.Unsubscribe(subscriptionID, false, ""); err != nil {
+						// 		f.log.Debugf("unable to Unsubscribe %v - %v", subscriptionID, err)
+						// 	}
+						// 	// TODO: mark clientSub as "being closed" to prevent multiple Unsubscribe
+						// }(uid)
 					}
 				}
 			}
