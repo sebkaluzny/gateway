@@ -45,11 +45,7 @@ func (newTransactionNotification *NewTransactionNotification) MakeBlockchainTran
 	newTransactionNotification.lock.Lock()
 	defer newTransactionNotification.lock.Unlock()
 
-	if newTransactionNotification.validationStatus == TxValid {
-		fmt.Printf("ALREADY VALID %+v\n", newTransactionNotification)
-		return nil
-	}
-	if newTransactionNotification.validationStatus == TxPendingValidation {
+	if newTransactionNotification.validationStatus == TxPendingValidation || (newTransactionNotification.validationStatus == TxValid && newTransactionNotification.BlockchainTransaction == nil) {
 		newTransactionNotification.BlockchainTransaction, err =
 			newTransactionNotification.BxTransaction.BlockchainTransaction(newTransactionNotification.BxTransaction.sender)
 		if err != nil {

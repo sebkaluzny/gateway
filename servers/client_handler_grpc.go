@@ -186,11 +186,6 @@ func makeTransaction(transaction types.NewTransactionNotification, txFromFieldIn
 			return tx
 		}
 
-		if transaction.BlockchainTransaction == nil {
-			fmt.Printf("%+v", transaction)
-			log.Errorf("ERROR %+v", transaction)
-		}
-
 		sender, err := transaction.BlockchainTransaction.Sender()
 		if err != nil {
 			log.Errorf("error getting sender from blockchain transaction: %v", err)
