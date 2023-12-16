@@ -180,6 +180,7 @@ func makeTransaction(transaction types.NewTransactionNotification, txFromFieldIn
 		}
 
 		if transaction.BlockchainTransaction == nil {
+			fmt.Printf("%+v", transaction)
 			log.Errorf("ERROR %+v", transaction)
 		}
 
