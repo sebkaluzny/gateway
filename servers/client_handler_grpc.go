@@ -166,6 +166,13 @@ func generateEthOnBlockReply(n *types.OnBlockNotification) *pb.EthOnBlockReply {
 }
 
 func makeTransaction(transaction types.NewTransactionNotification, txFromFieldIncludable bool) *pb.Tx {
+	defer func() {
+		if r := recover(); r != nil {
+			fmt.Printf("%+v", transaction)
+			panic("error")
+		}
+	}()
+
 	tx := &pb.Tx{
 		LocalRegion: transaction.LocalRegion(),
 		Time:        time.Now().UnixNano(),
